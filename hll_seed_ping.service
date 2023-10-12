@@ -1,0 +1,22 @@
+[Unit]
+Description=Automated Discord Seeding Ping for Hell Let Loose
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/PATH/TO/YOUR/hll_seed_ping
+
+# This line creates the virtual environment if it doesn't exist
+ExecStartPre=/usr/bin/python3 -m venv /PATH/TO/YOUR/hll_seed_ping/venv
+
+# ALTERNATIVE
+ExecStartPre=/bin/bash -c 'if [ ! -d "/PATH/TO/YOUR/hll_seed_ping/venv" ]; then /PATH/TO/YOUR/python3 -m venv /PATH/TO/YOUR/hll_seed_ping/venv; fi'
+
+# This line activates the virtual environment and runs the script in daemon mode
+ExecStart=/PATH/TO/YOUR/hll_seed_ping/venv/python /PATH/TO/YOUR/hll_seed_ping/hll_seed_ping.py --daemon
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
