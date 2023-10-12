@@ -208,7 +208,7 @@ def send_discord_message(player_count, current_map):
         print(f'Discord webhook message sent at {datetime.now().strftime("%Y/%m/%d %H:%M:%S")}')
         print()
 
-        # TO DO: Add logic to edit the Discord message sent until the server is seeded.
+        # TODO: Add logic to edit the Discord message sent until the server is seeded.
         #    webhook.content = "After Edit"
         #    time.sleep(10)
         #    webhook.edit()
@@ -234,7 +234,7 @@ def check_player_count():
         config["last_player_count"] = player_count
         config["time_last_player_count"] = datetime.now()
 
-        # TO DO: Add logic to avoid sending messages when the server is "dying" || T0: 60 players, T1: 50 players, T2: 40 players, T3: 39 players --> As things stand now, it will send a seeding message.
+        # TODO: Add logic to avoid sending messages when the server is "dying" || T0: 60 players, T1: 50 players, T2: 40 players, T3: 39 players --> As things stand now, it will send a seeding message.
         # POSSIBLE SOLUTION:
         #    - TIE THE COOLDOWN TO ONLY THE SEEDING MESSAGE, NOT THE WHOLE SCRIPT EXECUTION
         #        - ALWAYS CHECK FOR PLAYER_COUNT: IF PLAYER_COUNT == 0, THEN CHECK EVERY 15-30 MINS
